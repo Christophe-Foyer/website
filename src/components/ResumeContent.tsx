@@ -36,7 +36,7 @@ const ResumeContent = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-8">
-      <div className="resume-content prose prose-lg max-w-none">
+      <div className="bg-card/80 border border-border/30 rounded-lg shadow-lg p-12 resume-content prose prose-lg max-w-none">
         <ReactMarkdown>{markdownContent}</ReactMarkdown>
       </div>
     </div>
