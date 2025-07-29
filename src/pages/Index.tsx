@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import AboutMe from "@/components/AboutMe";
 import ResumeContent from "@/components/ResumeContent";
 import ProjectsList from "@/components/ProjectsList";
 
@@ -7,6 +8,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="py-8">
+        <AboutMe />
         <ResumeContent />
         <ProjectsList />
       </main>
