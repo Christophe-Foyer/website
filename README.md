@@ -3,6 +3,8 @@
 I don't have time (nor the interest) to create a good looking website for scratch so I'm trying out lovable.dev for an LLM generated website.
 The work is mainly not mine. This is mainly to have a hassle-free way of hosting simple markdown documents.
 
+Disclaimer: I don't believe in 'vibe coding' for novel projects, but surprisingly, this seems to work well enough for my usecase for this webpage.
+
 # Welcome to your Lovable project
 
 ## Project info
