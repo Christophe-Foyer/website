@@ -8,7 +8,7 @@ const ResumeContent = () => {
   useEffect(() => {
     const loadResume = async () => {
       try {
-        const response = await fetch('/src/data/resume.md');
+        const response = await fetch('/data/resume.md');
         const text = await response.text();
         setMarkdownContent(text);
       } catch (error) {

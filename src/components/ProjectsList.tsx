@@ -26,7 +26,7 @@ const ProjectsList = () => {
 
         const projectPromises = projectFiles.map(async (filename) => {
           try {
-            const response = await fetch(`/src/data/projects/${filename}`);
+            const response = await fetch(`/data/projects/${filename}`);
             if (!response.ok) {
               console.warn(`Project file ${filename} not found`);
               return null;
@@ -100,7 +100,7 @@ const ProjectsList = () => {
       {projects.length === 0 ? (
         <Card>
           <CardContent className="p-8 text-center">
-            <p className="text-muted-foreground">No projects found. Add markdown files to /src/data/projects/</p>
+            <p className="text-muted-foreground">No projects found. Add markdown files to /public/data/projects/</p>
           </CardContent>
         </Card>
       ) : (

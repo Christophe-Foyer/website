@@ -8,7 +8,7 @@ const AboutMe = () => {
   useEffect(() => {
     const loadAboutMe = async () => {
       try {
-        const response = await fetch('/src/data/about.md');
+        const response = await fetch('/data/about.md');
         const text = await response.text();
         setMarkdownContent(text);
       } catch (error) {
