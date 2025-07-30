@@ -1,3 +1,9 @@
+# About this website
+
+:exclamation: This website is a work in progress and will eventually be moved to cfoyer.com :exclamation:
+
+Most of the text is placeholder text.
+
 # About Me
 
 Hi, I'm Christophe! I'm a Machine Learning and Computer Vision Engineer with a passion for building intelligent systems that solve real-world problems. Currently working as an ML Consultant at Oishii, I specialize in developing robust MLOps pipelines and computer vision solutions for agricultural robotics.
