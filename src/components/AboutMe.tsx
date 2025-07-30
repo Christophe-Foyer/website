@@ -36,7 +36,7 @@ const AboutMe = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-8">
-      <div className="about-content prose prose-lg max-w-none">
+      <div className="about-content resume-content max-w-none">
         <ReactMarkdown>{markdownContent}</ReactMarkdown>
       </div>
     </div>
