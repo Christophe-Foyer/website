@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkEmoji from 'remark-emoji';
+import remarkGfm from 'remark-gfm';
 
 const AboutMe = () => {
   const [markdownContent, setMarkdownContent] = useState('');
@@ -37,7 +39,21 @@ const AboutMe = () => {
   return (
     <div className="max-w-4xl mx-auto p-8">
       <div className="about-content resume-content max-w-none">
-        <ReactMarkdown>{markdownContent}</ReactMarkdown>
+        <ReactMarkdown 
+          remarkPlugins={[remarkEmoji, remarkGfm]}
+          components={{
+            img: ({alt, src, title}) => (
+              <img 
+                alt={alt} 
+                src={src} 
+                title={title}
+                className="rounded-lg shadow-md max-w-full h-auto my-4"
+              />
+            )
+          }}
+        >
+          {markdownContent}
+        </ReactMarkdown>
       </div>
     </div>
   );

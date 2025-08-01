@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkEmoji from 'remark-emoji';
+import remarkGfm from 'remark-gfm';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface Project {
@@ -113,7 +115,21 @@ const ProjectsList = () => {
               </CardHeader>
               <CardContent>
                 <div className="prose prose-sm max-w-none dark:prose-invert">
-                  <ReactMarkdown>{project.content}</ReactMarkdown>
+                  <ReactMarkdown 
+                    remarkPlugins={[remarkEmoji, remarkGfm]}
+                    components={{
+                      img: ({alt, src, title}) => (
+                        <img 
+                          alt={alt} 
+                          src={src} 
+                          title={title}
+                          className="rounded-lg shadow-md max-w-full h-auto my-4"
+                        />
+                      )
+                    }}
+                  >
+                    {project.content}
+                  </ReactMarkdown>
                 </div>
               </CardContent>
             </Card>
