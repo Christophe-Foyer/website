@@ -73,7 +73,7 @@ const ProjectsList = () => {
 
   if (loading) {
     return (
-      <div className="max-w-4xl mx-auto p-8">
+      <div className="max-w-4xl mx-auto py-8 md:px-8 px-4">
         <h2 className="text-2xl font-bold mb-6 text-foreground">Projects</h2>
         <div className="space-y-6">
           {[1, 2, 3].map((i) => (
@@ -97,7 +97,7 @@ const ProjectsList = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-8">
+    <div className="max-w-4xl mx-auto py-8 md:px-8 px-4">
       <h2 className="text-2xl font-bold mb-6 text-foreground">Projects</h2>
       {projects.length === 0 ? (
         <Card>

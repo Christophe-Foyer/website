@@ -26,7 +26,7 @@ const ResumeContent = () => {
 
   if (loading) {
     return (
-      <div className="max-w-4xl mx-auto p-8">
+      <div className="max-w-4xl mx-auto py-8 md:px-8 px-4">
         <div className="animate-pulse space-y-4">
           <div className="h-8 bg-muted rounded w-1/2"></div>
           <div className="h-4 bg-muted rounded w-3/4"></div>
@@ -37,8 +37,8 @@ const ResumeContent = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-8">
-      <div className="bg-card/80 border border-border/30 rounded-lg shadow-lg p-12 resume-content prose prose-lg max-w-none">
+    <div className="max-w-4xl mx-auto py-8 md:px-8 px-4">
+      <div className="bg-card/80 border border-border/30 rounded-lg shadow-lg md:p-12 p-6 resume-content prose prose-lg max-w-none">
         <ReactMarkdown 
           remarkPlugins={[remarkEmoji, remarkGfm]}
           components={{
