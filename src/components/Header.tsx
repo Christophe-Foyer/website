@@ -21,7 +21,7 @@ const Header = () => {
       <div className="max-w-4xl mx-auto px-8 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="hover:opacity-80 transition-opacity">
-            <img src="/logo-full.png" alt="Christophe Foyer" className="h-8" />
+            <img src="/lovable-uploads/bd666d8c-ffdf-494a-8f3e-55c4946e66dc.png" alt="Christophe Foyer" className="h-8" />
           </Link>
           
           {isMobile ? (
