@@ -21,9 +21,7 @@ const ProjectsList = () => {
         // In a real implementation, you'd need a way to list files in the projects directory
         // For now, we'll use a predefined list of project files
         const projectFiles = [
-          '2025-01-05-Tortuga Agtech.md',
-          '2024-12-15-MLOps Pipeline.md',
-          '2024-11-20-Computer Vision System.md'
+          '2025-03-15-Tortuga Agtech.md',
         ];
 
         const projectPromises = projectFiles.map(async (filename) => {
