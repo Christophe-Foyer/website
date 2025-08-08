@@ -20,8 +20,8 @@ const Header = () => {
     <header className="bg-card/50 backdrop-blur-sm border-b border-border sticky top-0 z-10">
       <div className="max-w-4xl mx-auto px-8 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-bold text-primary hover:text-primary/80 transition-colors">
-            Christophe Foyer
+          <Link to="/" className="hover:opacity-80 transition-opacity">
+            <img src="/logo-full.png" alt="Christophe Foyer" className="h-8" />
           </Link>
           
           {isMobile ? (
