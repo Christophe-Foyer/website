@@ -18,11 +18,12 @@ const ProjectsList = () => {
   useEffect(() => {
     const loadProjects = async () => {
       try {
-        // In a real implementation, you'd need a way to list files in the projects directory
-        // For now, we'll use a predefined list of project files
-        const projectFiles = [
-          '2025-03-15-Tortuga Agtech.md',
-        ];
+        // Fetch the projects manifest
+        const manifestResponse = await fetch('/data/projects/projects-manifest.json');
+        if (!manifestResponse.ok) {
+          throw new Error('Failed to load projects manifest');
+        }
+        const projectFiles = await manifestResponse.json();
 
         const projectPromises = projectFiles.map(async (filename) => {
           try {
