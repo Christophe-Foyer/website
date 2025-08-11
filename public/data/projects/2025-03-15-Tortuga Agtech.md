@@ -10,9 +10,9 @@ To support our robots in the field, I developed modular pipelines for managing c
 
 ```mermaid
 graph TD
-    A[Sensor Input (RGB, Depth)] --> B[Image Capture & Storage]
-    B --> C[Task Clustering (Ray)]
-    C --> D[ML Inference (PyTorch)]
+    A["Sensor Input (RGB, Depth)"] --> B[Image Capture & Storage]
+    B --> C["Task Clustering (Ray)"]
+    C --> D["ML Inference (PyTorch)"]
     D --> E[ROS Node Integration]
     E --> F[Actuation / Decision System]
 ```
