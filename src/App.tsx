@@ -12,9 +12,10 @@ const queryClient = new QueryClient();
 
 const App = () => {
   // Handle GitHub Pages routing redirect
-  const { pathname, search, hash } = window.location;
-  if (/^\/?\//.test(pathname)) {
-    window.history.replaceState(null, '', pathname.slice(1) + search + hash);
+  const urlParams = new URLSearchParams(window.location.search);
+  const redirectPath = urlParams.get('p');
+  if (redirectPath) {
+    window.history.replaceState(null, '', '/' + redirectPath.replace(/~and~/g, '&') + window.location.hash);
   }
 
   return (
