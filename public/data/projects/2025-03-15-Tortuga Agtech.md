@@ -9,7 +9,7 @@ My work spanned the full ML lifecycle. I helped design and build the infrastruct
 To support our robots in the field, I developed modular pipelines for managing computer vision workflows. These pipelines were designed to be reproducible, scalable, and field-tested. We relied heavily on PyTorch, Postgres, and AWS for experimentation, and on optimized containers running on remote nodes for deployment.
 
 ```mermaid
-graph TD
+graph LR
     A["Sensor Input (RGB, Depth)"] --> B[Image Capture & Storage]
     B --> C["Task Clustering (Ray)"]
     C --> D["ML Inference (PyTorch)"]
@@ -36,7 +36,7 @@ It started as a lightweight scheduling tool and evolved into a core part of our 
 Beyond model performance metrics, we cared deeply about behavior in production. I created evaluation dashboards and drift detection tools that helped us track changes over time, spot edge cases, and diagnose issues across environments. We built tooling to group and visualize failure modes by cluster and environment - giving the team fast feedback loops between deployment and model improvement.
 
 ```mermaid
-graph TD
+graph LR
     A[New Field Data] --> B[Automatic Evaluation]
     B --> C{Drift / Anomaly Detected?}
     C -- Yes --> D[Send to Prioritization Queue]
