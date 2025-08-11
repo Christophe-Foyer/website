@@ -61,14 +61,13 @@
 
 ---
 
-## ACADEMIC PROJECTS & INVOLVEMENTS
+## ACADEMIC PROJECTS
 
 **MSc Dissertation** – *B-Spline Active Contours for the 3D Segmentation of Vascular Structures*  
 &nbsp;*University College London – 2019 – 2020*  
 
 **BSc Final Project** – *Custom FEA and ray-tracing software for water-based lenses in photovoltaic arrays*  
 &nbsp;*Washington University in St. Louis – 2017*  
-
 
 **Design/Build/Fly Team – Founder** – *12th place (out of 139) at AIAA DBF 2017*  
 &nbsp;*Washington University in St. Louis – 2016 – 2017* 
