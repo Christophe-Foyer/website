@@ -4,7 +4,7 @@
 
 ---
 
-# About Me
+## About Me
 
 Hi, I’m Christophe, a Machine Learning and Computer Vision Engineer focused on building practical, reliable systems that operate in the real world. I work independently as a consultant, helping startups and engineering teams take machine learning projects from proof-of-concept to production.
 
