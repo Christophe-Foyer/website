@@ -1,6 +1,6 @@
 ![](https://www.en-former.com/wp-content/uploads/2019/05/rwe_enformer_stahl_aus_wasserstoff_1340x590.jpg.webp)
 
-# Real-Time Steel Slab Temperature Estimation at Tata Steel
+# Real-Time Steel Slab Temperature Estimation
 
 In 2018, I collaborated with Tata Steel’s Customer Value Department in IJmuiden, the Netherlands, on a high-intensity, 14-week “SWAT” engineering project. The task was ambitious: build a real-time system to track the temperature of thousands of steel slabs as they moved from the steel plant to the hot strip mill — a journey that could last hours or even days in open-air storage.
 
