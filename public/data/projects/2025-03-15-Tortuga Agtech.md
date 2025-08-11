@@ -1,5 +1,7 @@
 ## Tortuga MLOps
 
+![](https://s1.elespanol.com/2022/10/28/invertia/disruptores/america-tech/714189414_228338696_1706x640.jpg)
+
 From 2021 to 2023, I worked as a Machine Learning and Computer Vision Engineer at **Tortuga AgTech**, a robotics company building autonomous systems for high-precision agriculture. I joined a small but highly capable perception team focused on solving the real-world challenges of deploying CV/ML pipelines in harsh, variable outdoor environments - with all the unpredictability that comes with real farms and robots in the field.
 
 My work spanned the full ML lifecycle. I helped design and build the infrastructure and modeling systems that enabled robots to reliably see, understand, and act on their surroundings - from identifying fruits and obstacles to making actuation decisions in real time. One of my core responsibilities was building out an end-to-end ML pipeline that handled everything from data ingestion and annotation tooling to training, validation, deployment, and monitoring.
