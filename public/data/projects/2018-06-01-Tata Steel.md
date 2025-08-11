@@ -40,11 +40,11 @@ flowchart TD
     M --> V[Visualization Dashboard]
     M --> R[Production Planning]
     
-    style A fill:#bae1ff,stroke:#333,stroke-width:1px,color:#000
-    style B fill:#ffffba,stroke:#333,stroke-width:1px,color:#000
+    style A fill:#bae1ff,stroke:#333,stroke-width:1px
+    style B fill:#ffffba,stroke:#333,stroke-width:1px
     style M fill:#ffdfba,stroke:#333,stroke-width:1px
     style V fill:#baffc9,stroke:#333,stroke-width:1px
-    style R fill:#ffb3ba,stroke:#333,stroke-width:1px,color:#000
+    style R fill:#ffb3ba,stroke:#333,stroke-width:1px
 ```
 
 ---
