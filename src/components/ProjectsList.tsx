@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkEmoji from 'remark-emoji';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import MermaidDiagram from './MermaidDiagram';
 
@@ -115,9 +116,10 @@ const ProjectsList = () => {
               </CardHeader>
               <CardContent>
                 <div className="project-content prose prose-lg max-w-none dark:prose-invert">
-                  <ReactMarkdown 
-                    remarkPlugins={[remarkEmoji, remarkGfm]}
-                    components={{
+                    <ReactMarkdown
+                      remarkPlugins={[remarkEmoji, remarkGfm]}
+                      rehypePlugins={[rehypeRaw]}
+                      components={{
                       img: ({alt, src, title}) => (
                         <img 
                           alt={alt} 
