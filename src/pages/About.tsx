@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="py-8">
+      <main className="pt-4 pb-8">
         <AboutMe />
       </main>
     </div>
