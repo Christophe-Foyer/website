@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkEmoji from 'remark-emoji';
 import remarkGfm from 'remark-gfm';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import MermaidDiagram from './MermaidDiagram';
 
 interface Project {
   filename: string;
@@ -113,7 +114,7 @@ const ProjectsList = () => {
                 <p className="text-sm text-muted-foreground">{project.date}</p>
               </CardHeader>
               <CardContent>
-                <div className="prose prose-sm max-w-none dark:prose-invert">
+                <div className="project-content prose prose-lg max-w-none dark:prose-invert">
                   <ReactMarkdown 
                     remarkPlugins={[remarkEmoji, remarkGfm]}
                     components={{
@@ -124,7 +125,21 @@ const ProjectsList = () => {
                           title={title}
                           className="rounded-lg shadow-md max-w-full h-auto my-4"
                         />
-                      )
+                      ),
+                      code: ({className, children, ...props}: any) => {
+                        const match = /language-(\w+)/.exec(className || '');
+                        const language = match && match[1];
+                        
+                        if (language === 'mermaid') {
+                          return <MermaidDiagram chart={String(children).replace(/\n$/, '')} />;
+                        }
+                        
+                        return (
+                          <code className={className} {...props}>
+                            {children}
+                          </code>
+                        );
+                      }
                     }}
                   >
                     {project.content}
