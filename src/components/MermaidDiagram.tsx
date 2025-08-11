@@ -18,7 +18,9 @@ const MermaidDiagram = ({ chart }: MermaidDiagramProps) => {
 
   useEffect(() => {
     if (ref.current) {
-      mermaid.render('mermaid-diagram', chart).then(({ svg }) => {
+      // Generate unique ID for each diagram
+      const uniqueId = `mermaid-${Math.random().toString(36).substr(2, 9)}`;
+      mermaid.render(uniqueId, chart).then(({ svg }) => {
         if (ref.current) {
           ref.current.innerHTML = svg;
         }
