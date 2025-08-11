@@ -12,7 +12,11 @@ flowchart LR
     B --> C[Cooling Due to Environment]
     C --> D[Required: 1200°C for Rolling]
     D --> E[Reheating Furnace]
-    style A fill:#f88,stroke:#333,stroke-width:1px
+
+    style A fill:#ff4d4d,stroke:#333,stroke-width:1px,color:#fff
+    style B fill:#ff944d,stroke:#333,stroke-width:1px,color:#fff
+    style C fill:#ffd11a,stroke:#333,stroke-width:1px,color:#000
+    style D fill:#fe,stroke:#333,stroke-width:1px,color:#000
     style E fill:#faa,stroke:#333,stroke-width:1px
 
 ```
@@ -35,8 +39,12 @@ flowchart TD
     B[Slab Tracking DB] --> M
     M --> V[Visualization Dashboard]
     M --> R[Production Planning]
-    style M fill:#9cf,stroke:#333,stroke-width:1px
-    style V fill:#cfc,stroke:#333,stroke-width:1px
+    
+    style A fill:#bae1ff,stroke:#333,stroke-width:1px,color:#000
+    style B fill:#ffffba,stroke:#333,stroke-width:1px,color:#000
+    style M fill:#ffdfba,stroke:#333,stroke-width:1px
+    style V fill:#baffc9,stroke:#333,stroke-width:1px
+    style R fill:#ffb3ba,stroke:#333,stroke-width:1px,color:#000
 ```
 
 ---
