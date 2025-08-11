@@ -1,6 +1,6 @@
 # Welcome
 
-🚧 This site is a work in progress and will soon be available at [cfoyer.com](https://cfoyer.com). 🚧
+🚧 This site is a work in progress. 🚧
 
 ---
 
