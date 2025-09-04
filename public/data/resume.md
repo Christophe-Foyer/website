@@ -33,7 +33,7 @@
 - Sole UK-based robotics engineer; provided field deployment and GMT coverage.  
 - Developed visualization and ML infrastructure (Docker, Plotly, AWS).  
 
-**Maui63** - *Remote, NZ | 2021 - Present*  
+**Maui63** - *Remote, NZ | 2021*  
 &nbsp;*Software & ML Volunteer*  
 
 - Built OpenCV/YOLOv4-based labeling and post-processing tools for marine mammal monitoring.  
