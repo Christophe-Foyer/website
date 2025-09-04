@@ -8,9 +8,9 @@
 ## EXPERIENCE
 
 **Independent contractor** - *Remote | 2025 - Present*  
-&nbsp;*Machine Learning Consultant - Oishii*
+&nbsp;*Machine Learning Consultant - AgTech client (vertical farming)*
 
-- Led the transfer of ML intellectual property from Tortuga Agtech, ensuring business continuity for robotic crop harvesting.  
+- Led the transfer of ML intellectual property from a robotics startup, ensuring business continuity for robotic crop harvesting.  
 - Advised on Computer Vision strategy for autonomous harvesting systems.  
 - Rebuilt MLOps pipelines for automated training, evaluation, and deployment across multiple ML projects.  
 
