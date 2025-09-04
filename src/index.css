@@ -131,7 +131,7 @@ All colors MUST be HSL.
   }
   
   .resume-content ul {
-    @apply list-disc list-inside space-y-1 ml-4;
+    @apply list-disc list-inside space-y-1 ml-4 mt-1 mb-4;
   }
   
   .resume-content li {
