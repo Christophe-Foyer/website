@@ -44,7 +44,7 @@ const ResumeContent = () => {
         <Button asChild>
           <a 
             href="/data/resume.pdf" 
-            download="resume.pdf"
+            download={`Christophe Foyer - Resume ${new Date().getFullYear()}.pdf`}
             className="inline-flex items-center gap-2"
           >
             <Download className="h-4 w-4" />
