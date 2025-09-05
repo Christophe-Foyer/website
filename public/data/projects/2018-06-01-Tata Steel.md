@@ -1,4 +1,4 @@
-![](https://www.en-former.com/wp-content/uploads/2019/05/rwe_enformer_stahl_aus_wasserstoff_1340x590.jpg.webp)
+![](https://cfoyer.com/media/ektaras.webp)
 
 # Real-Time Steel Slab Temperature Estimation
 
