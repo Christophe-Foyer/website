@@ -7,25 +7,25 @@
 
 ## EXPERIENCE
 
-**Independent contractor** - *Remote | 2025 - Present*  
+**Freelance ML Consultant** - *Remote | 2025 - Present*  
 &nbsp;*Machine Learning Consultant - AgTech client (vertical farming)*
 
 - Led the transfer of ML intellectual property from a robotics startup, ensuring business continuity for robotic crop harvesting.  
-- Advised on Computer Vision strategy for autonomous harvesting systems.  
-- Rebuilt MLOps pipelines for automated training, evaluation, and deployment across multiple ML projects.  
+- Advised on Computer Vision strategy and roadmap for autonomous harvesting systems.  
+- Rebuilt MLOps pipelines for automated training, evaluation, and deployment across multiple ML projects, enabling the client to run fully automated retraining and deployment without manual intervention.
 
 **Tortuga Agtech** - *Remote, UK-USA | 2021 - 2025*  
 &nbsp;*Machine Learning & Computer Vision Engineer (2023 - 2025)*  
 
-- Designed ML infrastructure from training pipelines to deployment environments.  
-- Mentored junior engineers and managed labeling team priorities.  
-- Optimized distributed training and hyperparameter tuning, maintaining backward compatibility across projects.  
-- Migrated labeling workflows to CVAT and new providers, reducing annotation costs by 50%+.  
+- Designed end-to-end ML infrastructure, allowing ML and field engineers to iterate and deploy models independently.  
+- Defined roadmaps and managed priorities for labeling, while mentoring ops staff and coordinating internal and external annotation teams.  
+- Scaled model training from single-GPU experiments to distributed training (Ray & PyTorch Lightning) while ensuring backward compatibility across diverse tasks (detection, classification, segmentation).  
+- Migrated labeling workflows to CVAT and new providers, reducing annotation costs by 50%+.    
 
 &nbsp;*MLOps Engineer (2022 - 2023)*  
 
-- Unified training-inference interfaces for all deployed ML models.  
-- Overhauled on-robot ML interfaces (Python & ROS), improving reliability.  
+- Unified training-inference interfaces for all deployed ML models enabling faster iteration and reducing duplication across teams.  
+- Overhauled on-robot ML interfaces (Python & ROS), including implementing testing frameworks, allowing for seamless and reliable model deployments to the field.  
 - Built new end-to-end ML pipelines for robotics projects in production.  
 
 &nbsp;*Robotics Engineer (2021 - 2022)*  
@@ -49,13 +49,8 @@
 **University College London** - *London, UK | 2019 - 2020*  
 &nbsp;*MSc Scientific Computing - Distinction*  
 
-- Dissertation: *B-Spline Active Contours for the 3D Segmentation of Vascular Structures*  
-
 **Washington University in St. Louis** - *St. Louis, USA | 2014 - 2017*  
 &nbsp;*BSc Mechanical Engineering*  
-
-- Final Project: *Custom FEA and ray-tracing software for water-based lenses in photovoltaic arrays*  
-- Founder: Design/Build/Fly Team - placed 12th/139 at AIAA DBF 2017  
 
 ---
 

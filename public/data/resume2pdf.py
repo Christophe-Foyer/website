@@ -26,7 +26,7 @@ html = f"""
         body {{
             font-family: Arial, sans-serif;
             font-size: 11pt;
-            margin-top: 0.25in;
+            margin-top: 0.3in;
             margin-bottom: 0.2in;
             margin-left: 0.4in;
             margin-right: 0.4in;
