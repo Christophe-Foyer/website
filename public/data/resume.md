@@ -58,5 +58,5 @@
 
 **Core Expertise:** Computer Vision, Machine Learning Infrastructure, MLOps, Robotics, Distributed Training, Model Deployment  
 
-**Programming:** Python, SQL, Bash, HTML, CSS, MATLAB | working knowledge of JavaScript, C++, Rust  
+**Programming:** Python, SQL, Bash, HTML, CSS, MATLAB | familiar with JavaScript, C++, Rust  
 **Tools & Libraries:** PyTorch, Docker, PostgreSQL, ROS, AWS, Airflow, OpenCV, Ray, PyTorch Lightning
