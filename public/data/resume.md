@@ -13,6 +13,7 @@
 - Led the transfer of ML intellectual property from a robotics startup, ensuring business continuity for robotic crop harvesting.  
 - Advised on Computer Vision strategy and roadmap for autonomous harvesting systems.  
 - Rebuilt MLOps pipelines for automated training, evaluation, and deployment across multiple ML projects, enabling the client to run fully automated retraining and deployment without manual intervention.
+- Reimplemented YOLOv3 in PyTorch, achieving a 10x improvement in inference throughput and avoiding licensing dependencies, enabling cost-free deployment across client platforms.
 
 **Tortuga Agtech** - *Remote, UK-USA | 2021 - 2025*  
 &nbsp;*Machine Learning & Computer Vision Engineer (2023 - 2025)*  
