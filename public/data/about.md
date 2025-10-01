@@ -1,14 +1,14 @@
 # Welcome
 
-🚧 This site is a work in progress and the content is intended as a placeholder. 🚧
+I help startups and engineering teams turn machine learning ideas into robust, maintainable, and production-ready systems.
 
 ---
 
 ## About Me
 
-Hi, I’m Christophe, a Machine Learning and Computer Vision Engineer focused on building practical, reliable systems that operate in the real world. I work independently as a consultant, helping startups and engineering teams take machine learning projects from proof-of-concept to production.
+I’m a Machine Learning and Computer Vision Engineer, working independently on projects involving ML, data science, Python development, and deployment infrastructure.
 
-I specialize in computer vision and applied ML applied to tangible problems, with a strong track record in robotics, perception pipelines, and end-to-end infrastructure. Whether you're validating a prototype or scaling up a deployment, I bring a pragmatic, engineering-driven approach to solving complex problems.
+I specialize in computer vision and applied ML for real-world problems, with a strong track record in robotics, perception pipelines, and end-to-end infrastructure. Whether you’re validating a prototype or scaling a deployment, I bring a pragmatic, engineering-driven approach to solving complex challenges.
 
 ## What I Do
 
