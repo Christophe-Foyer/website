@@ -34,7 +34,7 @@
 - Sole UK-based robotics engineer; provided field deployment and GMT coverage.  
 - Developed visualization and ML infrastructure (Docker, Plotly, AWS).  
 
-**Maui63** - *Remote, NZ | 2021*  
+**Maui63** - *Remote, NZ | 2021-Present*  
 &nbsp;*Software & ML Volunteer*  
 
 - Built OpenCV/YOLOv4-based labeling and post-processing tools for marine mammal monitoring.  
@@ -60,4 +60,4 @@
 **Core Expertise:** Computer Vision, Machine Learning Infrastructure, MLOps, Robotics, Distributed Training, Model Deployment  
 
 **Programming:** Python, SQL, Bash, HTML, CSS, MATLAB | familiar with JavaScript, C++, Rust  
-**Tools & Libraries:** PyTorch, Docker, PostgreSQL, ROS, AWS, Airflow, OpenCV, Ray, PyTorch Lightning
+**Tools & Libraries:** PyTorch, Docker, PostgreSQL, ROS, AWS, Airflow, OpenCV, Ray, Lightning, MLFlow
