@@ -30,21 +30,18 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
 
-      - name: Install Python dependencies
+      - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y libpango-1.0-0 libpangoft2-1.0-0 libcairo2 libfontconfig1
-          pip install markdown weasyprint
 
       - name: Generate PDF Resume
         run: |
           cd public/data
-          python resume2pdf.py
+          uv run resume2pdf.py
 
       
       - name: Install dependencies

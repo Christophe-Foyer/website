@@ -1,14 +1,10 @@
 # %%
 import markdown
 from weasyprint import HTML
+import math
 import sys
-import os
 
-def generate_pdf(font_size_pt, margin_in, output_filename="resume.pdf"):
-    # Load your markdown content
-    with open("resume.md", "r") as f:
-        md_text = f.read()
-
+def generate_pdf_doc(font_size_pt, margin_in, md_text):
     # Convert to HTML
     html_body = markdown.markdown(
         md_text,
@@ -73,36 +69,66 @@ def generate_pdf(font_size_pt, margin_in, output_filename="resume.pdf"):
     return document
 
 def main():
-    target_pages = 1
-    
-    # Start with desired large settings
-    font_size = 11.0
-    margin = 0.4
-    
-    min_font = 8.0
-    min_margin = 0.2
-    
     output_file = "resume.pdf"
+    
+    # Load your markdown content
+    with open("resume.md", "r") as f:
+        md_text = f.read()
 
-    print(f"Attempting to fit resume on {target_pages} page(s)...")
+    # Default/Ideal settings
+    default_font = 11.0
+    default_margin = 0.4
+    
+    # Limits
+    min_font = 9.0
+    min_margin = 0.25
+    step_font = 0.5
+    step_margin = 0.05
 
-    while font_size >= min_font:
-        doc = generate_pdf(font_size, margin, output_file)
-        page_count = len(doc.pages)
-        print(f"  Generated with font_size={font_size}pt, margin={margin}in -> {page_count} pages")
+    print("Checking default page count...")
+    doc = generate_pdf_doc(default_font, default_margin, md_text)
+    initial_pages = len(doc.pages)
+    
+    # We want to fit into the floor of current pages (e.g., 1.2 -> 1)
+    # unless it's already an integer.
+    target_pages = math.floor(initial_pages)
+    # If for some reason it's 0 (empty file?), default to 1
+    if target_pages < 1:
+        target_pages = 1
         
-        if page_count <= target_pages:
+    print(f"Initial count: {initial_pages}. Target: {target_pages}.")
+
+    # If we are already at target (e.g. exactly 1.0 or 2.0 pages), we are good.
+    if initial_pages <= target_pages:
+        doc.write_pdf(output_file)
+        print(f"Success! Fits perfectly on {initial_pages} page(s). Saved to {output_file}.")
+        return
+
+    # Otherwise, try to shrink settings to fit target_pages
+    current_font = default_font
+    current_margin = default_margin
+    
+    while current_font >= min_font:
+        current_font -= step_font
+        if current_margin > min_margin:
+            current_margin -= step_margin
+            
+        print(f"  Trying compression: font={current_font}pt, margin={current_margin:.2f}in")
+        
+        doc = generate_pdf_doc(current_font, current_margin, md_text)
+        if len(doc.pages) <= target_pages:
             doc.write_pdf(output_file)
-            print(f"Success! Saved to {output_file} ({page_count} pages)")
+            print(f"Success! Compressed to fit on {len(doc.pages)} page(s). Saved to {output_file}.")
             return
             
-        # Reduce settings to try to fit
-        font_size -= 0.5
-        if margin > min_margin:
-            margin -= 0.05
-            
-    print("Could not fit on target pages with minimum settings. Saving last attempt.")
+    # If we exit loop, we couldn't fit it. Revert to defaults.
+    print(f"Could not fit content into {target_pages} page(s) even with min settings.")
+    print(f"Reverting to default settings ({initial_pages} pages).")
+    
+    # Re-generate with defaults
+    doc = generate_pdf_doc(default_font, default_margin, md_text)
     doc.write_pdf(output_file)
+    print(f"Saved default version to {output_file}.")
 
 if __name__ == "__main__":
     main()
