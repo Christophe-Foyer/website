@@ -5,6 +5,31 @@ The work is mainly not mine. This is mainly to have a hassle-free way of hosting
 
 Disclaimer: I don't believe in 'vibe coding' for novel projects, but surprisingly, this seems to work well enough for my usecase for this webpage.
 
+## How can I generate the resume PDF?
+
+The resume is generated from `public/data/resume.md` using `public/data/resume2pdf.py`.
+
+### Requirements
+
+- [uv](https://github.com/astral-sh/uv) - Fast Python package installer
+
+### Generating the PDF
+
+```sh
+# Install uv if you don't have it
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Generate the PDF
+cd public/data
+uv run resume2pdf.py
+```
+
+This will create `resume.pdf` in the same directory. The script automatically adjusts font size and margins to fit the content on integer pages (e.g., exactly 1 or 2 pages).
+
+**Note**: The PDF generation happens automatically in GitHub Actions, so you don't need to commit the generated `resume.pdf` file.
+
+_____
+
 # Welcome to your Lovable project
 
 ## Project info
