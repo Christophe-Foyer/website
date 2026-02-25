@@ -7,11 +7,9 @@
 
 ## SUMMARY
 
-Machine Learning Engineer specializing in computer vision systems for robotics and real-world deployment. Experienced in building end-to-end ML pipelines, from data collection and training to edge deployment and continuous retraining, across large physical deployments.
+Machine Learning Engineer specializing in computer vision systems for robotics and real-world deployment. Experienced in building and operating end-to-end ML systems, from data and training pipelines to edge deployment and continuous retraining, across large robot fleets.
 
-Proven track record of improving model performance, reliability, and scalability in production environments.
-
-Strong background in PyTorch-based systems, distributed training, and ML infrastructure.
+Proven track record of improving model performance, reliability, and scalability in production environments, with strong experience in PyTorch, distributed training, and ML infrastructure.
 
 ## EXPERIENCE
 
@@ -25,9 +23,9 @@ Strong background in PyTorch-based systems, distributed training, and ML infrast
 **Maui63** - *Remote, NZ | 2021 - Present*  
 &nbsp;*Software & ML Volunteer*  
 
-- Developing an anomaly detection pipeline using DINOv3 embeddings to surface out-of-distribution objects, reducing manual labeling effort by prioritizing high-value samples.
-- Training RF-DETR models for object detection of marine wildlife in diverse aerial datasets.
-- Built OpenCV/YOLOv4-based labeling and post-processing tools to support marine mammal detection and monitoring workflows.
+- Designed a similarity-based anomaly detection pipeline using DINOv3 embeddings to surface out-of-distribution marine objects, prioritizing high-value samples for labeling and reducing manual review effort.
+- Trained and evaluated transformer-based object detection models (RF-DETR) for marine wildlife detection across diverse aerial datasets.
+- Built custom labeling and post-processing tools (OpenCV, YOLO) to support efficient annotation and dataset curation workflows.
 
 **Tortuga Agtech** - *Remote, UK-USA | 2021 - 2025*  
 &nbsp;*Machine Learning & Computer Vision Engineer (2023 - 2025)*  
