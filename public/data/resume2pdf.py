@@ -7,10 +7,16 @@ from pathlib import Path
 
 # CONFIGURATION: Adjust these percentages to change search bounds
 # These are relative to the default values
-FONT_SIZE_VARIATION = 0.20  # ±20% of default font size
-MARGIN_VARIATION = 0.50     # ±50% of default margin
+FONT_SIZE_VARIATION = 0.09  # ±9% of default font size
+MARGIN_VARIATION = 0.4     # ±40% of default margin
+SPACING_VARIATION = 0.5    # ±50% of default paragraph spacing
 
-def generate_pdf_doc(font_size_pt, margin_in, md_text):
+# Default/Ideal settings
+default_font = 11
+default_margin = 0.4
+default_spacing = 1.0
+
+def generate_pdf_doc(font_size_pt, margin_in, spacing_mult, md_text):
     """Generate a PDF document from markdown text with specified formatting."""
     # Convert to HTML
     html_body = markdown.markdown(
@@ -30,35 +36,34 @@ def generate_pdf_doc(font_size_pt, margin_in, md_text):
             body {{
                 font-family: Arial, sans-serif;
                 font-size: {font_size_pt}pt;
+                line-height: 1.2;
             }}
             h1, h2 {{
-                margin-top: 0.5em;
-                margin-bottom: 0.2em;
+                margin-top: {0.5 * spacing_mult}em;
+                margin-bottom: {0.2 * spacing_mult}em;
             }}
             h3, h4 {{
-                margin-top: 0.1em;
-                margin-bottom: 0.1em;
+                margin-top: {0.1 * spacing_mult}em;
+                margin-bottom: {0.1 * spacing_mult}em;
             }}
             p {{
-                margin: 0.1em 0;
+                margin: {0.1 * spacing_mult}em 0;
+                margin-bottom: {5 * spacing_mult}px;
             }}
             ul {{
                 list-style-type: disc;
                 padding-left: 1.2em;
-                margin: 0.2em 0;
-                margin-bottom: 0.8em;
+                margin: {0.2 * spacing_mult}em 0;
+                margin-bottom: {0.8 * spacing_mult}em;
             }}
             li {{
-                margin: 0.1em 0;
+                margin: {0.1 * spacing_mult}em 0;
             }}
             strong {{
                 font-weight: bold;
             }}
             p strong {{
-                margin-top: 10px;
-            }}
-            p {{
-                margin-bottom: 5px;
+                margin-top: {10 * spacing_mult}px;
             }}
             a {{
                 color: #313859;
@@ -85,29 +90,29 @@ def get_page_utilization(document):
         return 0.0
     
     last_page = document.pages[-1]
+    page_box = last_page._page_box
     
-    # Get page dimensions (in points, 72 points = 1 inch)
-    page_height = last_page._page_box.height
-    
-    # Get margin (top + bottom)
-    margin_box = last_page._page_box.margin_height()
-    
-    # Available content height
-    available_height = margin_box
+    # Available content height (area inside margins)
+    usable_height = page_box.height - (page_box.margin_top + page_box.margin_bottom)
     
     # Get actual content height on last page
-    # The content_box contains all the rendered content
-    content_height = 0
-    for box in last_page._page_box.descendants():
+    content_bottom = 0
+    for box in page_box.descendants():
+        # Skip the PageBox itself and any MarginBoxes as they span the whole page height
+        if type(box).__name__ in ['PageBox', 'MarginBox']:
+             continue
+             
         if hasattr(box, 'height') and hasattr(box, 'position_y'):
             # Track the lowest point of content
             box_bottom = box.position_y + box.height
-            if box_bottom > content_height:
-                content_height = box_bottom
+            if box_bottom > content_bottom:
+                content_bottom = box_bottom
     
     # Calculate utilization ratio
-    if available_height > 0:
-        utilization = min(content_height / available_height, 1.0)
+    if usable_height > 0:
+        # Subtract margin_top because position_y is absolute within the page
+        content_height = max(0, content_bottom - page_box.margin_top)
+        utilization = min(content_height / usable_height, 1.0)
     else:
         utilization = 0.0
     
@@ -156,9 +161,9 @@ def calculate_score(document, target_pages=None):
         
         return score
 
-def optimize_parameters(md_text, default_font, default_margin):
+def optimize_parameters(md_text, default_font, default_margin, default_spacing):
     """
-    Find the best font size and margin combination to maximize page utilization.
+    Find the best font size, margin, and spacing combination to maximize page utilization.
     Uses a grid search within configurable bounds.
     """
     # Calculate search bounds based on configuration
@@ -166,51 +171,59 @@ def optimize_parameters(md_text, default_font, default_margin):
     max_font = default_font * (1 + FONT_SIZE_VARIATION)
     min_margin = default_margin * (1 - MARGIN_VARIATION)
     max_margin = default_margin * (1 + MARGIN_VARIATION)
+    min_spacing = default_spacing * (1 - SPACING_VARIATION)
+    max_spacing = default_spacing * (1 + SPACING_VARIATION)
     
-    # Use finer steps for better optimization
-    font_steps = 9  # Will create 9 steps between min and max
-    margin_steps = 9
+    # Grid steps
+    font_steps = 5
+    margin_steps = 5
+    spacing_steps = 5
     
     print(f"\nOptimization bounds:")
     print(f"  Font size: {min_font:.1f}pt to {max_font:.1f}pt")
     print(f"  Margin: {min_margin:.2f}in to {max_margin:.2f}in")
-    print(f"\nSearching {font_steps * margin_steps} parameter combinations...\n")
+    print(f"  Spacing mult: {min_spacing:.2f} to {max_spacing:.2f}")
+    print(f"\nSearching {font_steps * margin_steps * spacing_steps} parameter combinations...\n")
     
     best_score = -float('inf')
-    best_params = (default_font, default_margin)
+    best_params = (default_font, default_margin, default_spacing)
     best_doc = None
     best_utilization = 0.0
     
-    # Generate font and margin values to test
-    font_range = [min_font + (max_font - min_font) * i / (font_steps - 1) 
+    # Generate values to test
+    font_range = [min_font + (max_font - min_font) * i / max(1, font_steps - 1) 
                   for i in range(font_steps)]
-    margin_range = [min_margin + (max_margin - min_margin) * i / (margin_steps - 1) 
+    margin_range = [min_margin + (max_margin - min_margin) * i / max(1, margin_steps - 1) 
                     for i in range(margin_steps)]
+    spacing_range = [min_spacing + (max_spacing - min_spacing) * i / max(1, spacing_steps - 1) 
+                     for i in range(spacing_steps)]
     
     # Grid search
     for font_size in font_range:
         for margin in margin_range:
-            doc = generate_pdf_doc(font_size, margin, md_text)
-            score = calculate_score(doc)
-            utilization = get_page_utilization(doc)
-            num_pages = len(doc.pages)
-            
-            if score > best_score:
-                best_score = score
-                best_params = (font_size, margin)
-                best_doc = doc
-                best_utilization = utilization
-                print(f"  New best: font={font_size:.2f}pt, margin={margin:.2f}in "
-                      f"→ {num_pages} pages, {utilization*100:.1f}% last page fill "
-                      f"(score: {score:.1f})")
+            for spacing in spacing_range:
+                doc = generate_pdf_doc(font_size, margin, spacing, md_text)
+                score = calculate_score(doc)
+                utilization = get_page_utilization(doc)
+                num_pages = len(doc.pages)
+                
+                if score > best_score:
+                    best_score = score
+                    best_params = (font_size, margin, spacing)
+                    best_doc = doc
+                    best_utilization = utilization
+                    print(f"  New best: font={font_size:.2f}pt, margin={margin:.2f}in, spacing={spacing:.2f} "
+                          f"→ {num_pages} pages, {utilization*100:.1f}% last page fill "
+                          f"(score: {score:.1f})")
     
-    font_size, margin = best_params
+    font_size, margin, spacing = best_params
     num_pages = len(best_doc.pages)
     
     print(f"\n{'='*70}")
     print(f"Optimal parameters found:")
     print(f"  Font size: {font_size:.2f}pt")
     print(f"  Margin: {margin:.2f}in")
+    print(f"  Spacing multiplier: {spacing:.2f}")
     print(f"  Pages: {num_pages}")
     print(f"  Last page utilization: {best_utilization*100:.1f}%")
     print(f"  Score: {best_score:.1f}")
@@ -252,14 +265,10 @@ Configuration:
     # Load markdown content
     with open(input_path, "r") as f:
         md_text = f.read()
-
-    # Default/Ideal settings
-    default_font = 11.0
-    default_margin = 0.4
     
     if args.no_optimize:
         print(f"Generating PDF with default settings...")
-        doc = generate_pdf_doc(default_font, default_margin, md_text)
+        doc = generate_pdf_doc(default_font, default_margin, default_spacing, md_text)
         doc.write_pdf(output_file)
         num_pages = len(doc.pages)
         utilization = get_page_utilization(doc)
@@ -268,11 +277,11 @@ Configuration:
         return
     
     print(f"Optimizing PDF generation for {input_path}...")
-    print(f"Default settings: font={default_font}pt, margin={default_margin}in")
+    print(f"Default settings: font={default_font}pt, margin={default_margin}in, spacing={default_spacing}")
     
     # Run optimization
-    best_doc, (best_font, best_margin), num_pages, utilization = optimize_parameters(
-        md_text, default_font, default_margin
+    best_doc, best_params, num_pages, utilization = optimize_parameters(
+        md_text, default_font, default_margin, default_spacing
     )
     
     # Save the optimized PDF
