@@ -10,7 +10,7 @@ French & US citizen | UK (settled), USA, EEA work authorization
 **Freelance ML Consultant** - *Remote | 2025 - Present*  
 &nbsp;*Machine Learning Consultant - US AgTech client (vertical farming)*
 
-- Led transfer and reimplementation of ML systems from a robotics startup, ensuring uninterrupted robotics operations.
+- Led the transfer of ML systems from a robotics startup, ensuring the seamless transition of robotics operations.
 - Rebuilt MLOps pipelines for training, evaluation, and deployment, enabling fully automated retraining and zero-touch production releases.
 - Reimplemented YOLOv3 in PyTorch with optimized inference pipeline, achieving 10x throughput improvement and eliminating licensing constraints for cost-free deployment.
 
